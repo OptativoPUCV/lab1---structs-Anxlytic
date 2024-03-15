@@ -107,24 +107,26 @@ y luego devuelva 1 si el arreglo está ordenado en orden ascendente,
 int checkSorted(int arr[], int size) 
 {
   int i;
-  int flag = 0;
+  int ascending = 1;
+  int descending = 1;
+
   for (i = 0; i < size - 1; i++)
   {
-    if (arr[i] > arr[i + 1])
-    {
-      flag = -1; // Si encuentra un elemento mayor, el arreglo está ordenado en orden descendente.
-      break; 
+    if (arr[i] > arr[i + 1]) {
+      ascending = 0; // Si encuentra un elemento mayor, el arreglo no está en orden ascendente.
+    } else if (arr[i] < arr[i + 1]) {
+      descending = 0; // Si encuentra un elemento menor, el arreglo no está en orden descendente.
     }
-    else if (arr[i] < arr[i + 1])
-    {
-      flag = 1; // Si encuentra un elemento menor, el arreglo está ordenado en orden ascendente.
-      break;
-    }
-    // Si los elementos son iguales, continúa verificando.
   }
 
-  return flag;
+  if (ascending)
+    return 1;
+  else if (descending)
+    return -1;
+  else
+    return 0;
 }
+
 
 /*
 Ejercicio 6: Información de una Biblioteca
