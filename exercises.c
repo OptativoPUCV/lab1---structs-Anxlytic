@@ -106,32 +106,24 @@ y luego devuelva 1 si el arreglo está ordenado en orden ascendente,
 */
 int checkSorted(int arr[], int size) 
 {
-int i;
-int flag = 0;
-for (i = 0; i < size - 1; i++)
+  int i;
+  int flag = 0;
+  for (i = 0; i < size - 1; i++)
   {
     if (arr[i] > arr[i + 1])
     {
-      flag = -1;
+      flag = -1; // Si encuentra un elemento mayor, el arreglo está ordenado en orden descendente.
       break; 
     }
-    else if (arr[i] == arr[i + 1])
+    else if (arr[i] < arr[i + 1])
     {
-      flag = 0;
+      flag = 1; // Si encuentra un elemento menor, el arreglo está ordenado en orden ascendente.
+      break;
     }
+    // Si los elementos son iguales, continúa verificando.
   }
-if (flag == -1)
-{
-  return -1; 
-}
-else if (flag == 0)
-{
-  return 0; 
-}
-else
-{
-  return 1; 
-}
+
+  return flag;
 }
 
 /*
