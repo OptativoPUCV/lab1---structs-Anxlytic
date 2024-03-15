@@ -106,7 +106,7 @@ y luego devuelva 1 si el arreglo está ordenado en orden ascendente,
 */
 int checkSorted(int arr[], int size) 
 int i;
-int flag = 0; // Bandera para verificar el orden
+int flag = 0;
 for (i = 0; i < size - 1; i++)
   {
     if (arr[i] > arr[i + 1])
@@ -121,15 +121,15 @@ for (i = 0; i < size - 1; i++)
   }
 if (flag == -1)
 {
-  return -1; // Ordenado en orden descendente
+  return -1; 
 }
 else if (flag == 0)
 {
-  return 0; // No está ordenado
+  return 0; 
 }
 else
 {
-  return 1; // Ordenado en orden ascendente
+  return 1; 
 }
 
 /*
